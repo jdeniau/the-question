@@ -1,6 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import pkg from './package.json';
+import append from './src/appendPlugin';
 
 export default {
   input: 'src/index.js',
@@ -8,6 +9,7 @@ export default {
   plugins: [
     resolve(),
     commonjs(),
+    append(),
   ],
   output: [
     {

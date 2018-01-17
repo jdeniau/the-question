@@ -8,7 +8,7 @@ _ = _ && _.hasOwnProperty('default') ? _['default'] : _;
 
 var index = 42;
 
-var index$1 = _.upperCase(`The answer to life, universe and everything is : ${index}`);
+var index$1 = _.upperCase(`umd The answer to life, universe and everything is : ${index}`);
 
 exports['default'] = index$1;
 
