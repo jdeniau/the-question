@@ -8,9 +8,15 @@ _ = _ && _.hasOwnProperty('default') ? _['default'] : _;
 
 var index = 42;
 
+const anObject = { a: 'a' };
+
+const { a } = anObject;
+
+
 var index$1 = _.upperCase(`umd The answer to life, universe and everything is : ${index}`);
 
 exports['default'] = index$1;
+exports.a = a;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
