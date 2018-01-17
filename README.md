@@ -17,11 +17,6 @@ You can look at `lodash` here in [src/index.js](src/index.js) and [dist/index.es
 
 ### peerDependencies
 
-rollup config `external` should contain the list of keys from `peerDependencies`.
-```js
-  external: Object.keys(pkg.peerDependencies),
-```
-
 `peerDependencies` should be listed as`external` in rollup.
 Tell the caller developper to install the peer dependency, but without package manager resolution.
 May be useful for tighly coupled packages (eslint with an eslint plugin or react for a react component).
@@ -34,3 +29,19 @@ If you use a package internally, it will be included and "tree-shaked" by rollup
 You can look at `the-answer` here in [src/index.js](src/index.js) and [dist/index.es.js](dist/index.es.js).
 
 Useful if you do not want your caller to know the library used.
+
+## Tips for rollup configuration
+
+You can auto-generate external packages via theses lines of code:
+```js
+// rollup.config.js
+import pkg from './package.json';
+
+export default {
+  // ...
+  external: Object.keys(pkg.peerDependencies || {})
+    .contact(Object.keys(pkg.dependencies || {})),
+}
+```
+
+You will still need to provide "globals" map of you are generating non-ES output but you will have a warning triggered by rollup.
