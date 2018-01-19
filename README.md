@@ -22,6 +22,15 @@ Tell the caller developper to install the peer dependency, but without package m
 May be useful for tighly coupled packages (eslint with an eslint plugin or react for a react component).
 Harder to understand for humans though, but you will be 100% certain that the same instance of the library is shared between package and caller.
 
+Other case you should provide peerDependencies is if you need to use the peer dep to "make things". ie:
+```
+import moment from 'moment';
+import myLib from 'myLib';
+
+myLib.setMoment(moment);
+```
+Then you need to set `moment` as peerDependencies.
+
 ### devDependencies
 `devDependencies` should not be listed as `external` in rollup.
 
